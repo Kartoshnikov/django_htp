@@ -9,6 +9,7 @@ except:
 
 A = [[x for x in sample(range(-size, size+1), size)] for i in range(size)]
 
+
 print("Initial maxtix: ")
 for line in A:
     print()
@@ -16,14 +17,10 @@ for line in A:
         print("{0:^3d}".format(elem), end=" ")
 print("\n")
 
-#print(A[0][-3:])
-# for i in range(size-1):
-#     print(A[i][-size+1+i:])
-#
-# new_A = [A[i][-size+1+i:] for i in range(size-1)]
 
 temp = []
 for line in [A[i][-size+1+i:] for i in range(size-1)]:
-    temp.extend(filter(lambda x: x > 0, line))
+    # temp.extend(filter(lambda x: x >= 0, line))
+    temp.extend([x for x in line if x >= 0])
 
-print("Number of positive numbers above main diagonal is", len(temp))
+print("Number of positive numbers above main diagonal is", len(temp), temp)

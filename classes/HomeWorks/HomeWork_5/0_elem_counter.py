@@ -11,10 +11,6 @@ for pos, i in enumerate(test_list):
     else:
         my_dict[i] = 1
 
-max_v = 1
-for key, value in my_dict.items():
-    if value > max_v:
-        max_v = value
-        max_k = key
-
-print("The most frequently occurred element in the list - {0}.\n{0} occures in the list {1} times".format(max_k, max_v))
+temp = [(x, y) for x,y in my_dict.items()]
+temp.sort(key=lambda x: x[1])
+print("The most frequently occurred element in the list - {0}.\n{0} occures in the list {1} times".format(*temp[-1]))
